@@ -34,28 +34,26 @@
             // 
             this.chart.CrosshairOptions.CrosshairLabelMode = DevExpress.XtraCharts.CrosshairLabelMode.ShowForNearestSeries;
             this.chart.CrosshairOptions.HighlightPoints = false;
-            this.chart.DataBindings = null;
             this.chart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart.Legend.Name = "Default Legend";
             this.chart.Legend.TextVisible = false;
             this.chart.Location = new System.Drawing.Point(0, 0);
+            this.chart.Margin = new System.Windows.Forms.Padding(4);
             this.chart.Name = "chart";
             this.chart.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chart.Size = new System.Drawing.Size(1264, 681);
+            this.chart.Size = new System.Drawing.Size(911, 445);
             this.chart.TabIndex = 1;
             chartTitle1.Text = "Sales Volume by Year";
             this.chart.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle1});
             // 
-            // defaultLookAndFeel1
-            // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(911, 445);
             this.Controls.Add(this.chart);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

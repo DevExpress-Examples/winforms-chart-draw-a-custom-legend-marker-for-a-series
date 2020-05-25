@@ -6,10 +6,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace CustomDrawingSample {
-    public partial class Form1 : Form {
+    public partial class Form1 : DevExpress.XtraEditors.XtraForm {
         string trackedSeriesName;
         Dictionary<string, Image> photoCache = new Dictionary<string, Image>();
 
@@ -61,9 +60,10 @@ namespace CustomDrawingSample {
         void InitPhotoCache(IEnumerable<Employee> employees) {
             photoCache.Clear();
             foreach (var employee in employees) {
-                MemoryStream stream = new MemoryStream(employee.Photo);
-                if (!photoCache.ContainsKey(employee.FullName))
-                    photoCache.Add(employee.FullName, Image.FromStream(stream));
+                using (MemoryStream stream = new MemoryStream(employee.Photo)) {
+                    if (!photoCache.ContainsKey(employee.FullName))
+                        photoCache.Add(employee.FullName, Image.FromStream(stream));
+                }
             }
         }
 
@@ -73,10 +73,12 @@ namespace CustomDrawingSample {
             // Design a series marker image.
             Bitmap image = new Bitmap(totalWidth, totalHeight);
             using (Graphics graphics = Graphics.FromImage(image)) {
-                Brush fillBrush = isSelected ?
-                        (Brush)new HatchBrush(HatchStyle.DarkDownwardDiagonal, e.LegendDrawOptions.Color, e.LegendDrawOptions.ActualColor2) :
-                        (Brush)new SolidBrush(e.LegendDrawOptions.Color);
-                graphics.FillRectangle(fillBrush, totalRect);
+                using (var fillBrush = isSelected ? (Brush)new HatchBrush(HatchStyle.DarkDownwardDiagonal,
+                                                                          e.LegendDrawOptions.Color,
+                                                                          e.LegendDrawOptions.ActualColor2)
+                                                  : (Brush)new SolidBrush(e.LegendDrawOptions.Color)) {
+                    graphics.FillRectangle(fillBrush, totalRect);
+                }
                 Image photo;
                 if (photoCache.TryGetValue(e.Series.Name, out photo))
                     graphics.DrawImage(photo, photoRect);
