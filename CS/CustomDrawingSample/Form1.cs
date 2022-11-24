@@ -1,4 +1,5 @@
 ﻿using CustomDrawingSample.Model;
+using DevExpress.Drawing;
 using DevExpress.XtraCharts;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Linq;
 namespace CustomDrawingSample {
     public partial class Form1 : DevExpress.XtraEditors.XtraForm {
         string trackedSeriesName;
-        Dictionary<string, Image> photoCache = new Dictionary<string, Image>();
+        Dictionary<string, DXImage> photoCache = new Dictionary<string, DXImage>();
 
         #region #Constants
         const int borderSize = 5;
@@ -62,7 +63,7 @@ namespace CustomDrawingSample {
             foreach (var employee in employees) {
                 using (MemoryStream stream = new MemoryStream(employee.Photo)) {
                     if (!photoCache.ContainsKey(employee.FullName))
-                        photoCache.Add(employee.FullName, Image.FromStream(stream));
+                        photoCache.Add(employee.FullName, DXImage.FromStream(stream));
                 }
             }
         }
@@ -71,19 +72,19 @@ namespace CustomDrawingSample {
         private void OnCustomDrawSeries(object sender, CustomDrawSeriesEventArgs e) {
             bool isSelected = e.Series.Name.Equals(trackedSeriesName);
             // Design a series marker image.
-            Bitmap image = new Bitmap(totalWidth, totalHeight);
-            using (Graphics graphics = Graphics.FromImage(image)) {
-                using (var fillBrush = isSelected ? (Brush)new HatchBrush(HatchStyle.DarkDownwardDiagonal,
+            DXBitmap image = new DXBitmap(totalWidth, totalHeight);
+            using (DXGraphics graphics = DXGraphics.FromImage(image)) {
+                using (var fillBrush = isSelected ? (DXBrush)new DXHatchBrush(DXHatchStyle.DarkDownwardDiagonal,
                                                                           e.LegendDrawOptions.Color,
                                                                           e.LegendDrawOptions.ActualColor2)
-                                                  : (Brush)new SolidBrush(e.LegendDrawOptions.Color)) {
+                                                  : (DXBrush)new DXSolidBrush(e.LegendDrawOptions.Color)) {
                     graphics.FillRectangle(fillBrush, totalRect);
                 }
-                Image photo;
+                DXImage photo;
                 if (photoCache.TryGetValue(e.Series.Name, out photo))
                     graphics.DrawImage(photo, photoRect);
             }
-            e.LegendMarkerImage = image;
+            e.DXLegendMarkerImage = image;
             e.DisposeLegendMarkerImage = true;
 
             BarDrawOptions options = e.SeriesDrawOptions as BarDrawOptions;
