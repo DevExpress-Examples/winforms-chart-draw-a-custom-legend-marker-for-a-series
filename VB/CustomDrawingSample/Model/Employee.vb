@@ -1,32 +1,32 @@
-﻿Imports System.ComponentModel.DataAnnotations.Schema
-Imports System.ComponentModel.DataAnnotations
 Imports System.Collections.Generic
-Imports System
+Imports System.ComponentModel.DataAnnotations
+Imports System.ComponentModel.DataAnnotations.Schema
 
 Namespace CustomDrawingSample.Model
 
-	Partial Public Class Employee
-		<Key>
-		<Column("EmployeeID")>
-		Public Property EmployeeId() As Integer
+    Public Partial Class Employee
 
-		<Required>
-		<StringLength(20)>
-		Public Property LastName() As String
+        <Key>
+        <Column("EmployeeID")>
+        Public Property EmployeeId As Integer
 
-		<Required>
-		<StringLength(10)>
-		Public Property FirstName() As String
+        <Required>
+        <StringLength(20)>
+        Public Property LastName As String
 
-		<Column(TypeName := "image")>
-		Public Property Photo() As Byte()
+        <Required>
+        <StringLength(10)>
+        Public Property FirstName As String
 
-		Public Overridable Property Orders() As ICollection(Of Order)
+        <Column(TypeName:="image")>
+        Public Property Photo As Byte()
 
-		Public ReadOnly Property FullName() As String
-			Get
-				Return String.Format("{0} {1}", FirstName, LastName)
-			End Get
-		End Property
-	End Class
+        Overridable Public Property Orders As ICollection(Of Order)
+
+        Public ReadOnly Property FullName As String
+            Get
+                Return String.Format("{0} {1}", FirstName, LastName)
+            End Get
+        End Property
+    End Class
 End Namespace
