@@ -23,3 +23,8 @@ Assign a custom legend marker to the [LegendMarkerImage](https://docs.devexpress
 ## Documentation 
 
 [Legend Marker](https://docs.devexpress.com/WindowsForms/1985/controls-and-libraries/chart-control/visual-elements/legend-marker?p=netframework)
+
+## More Examples
+
+- [Chart for WinForms - How to Add Images for Legend Items](https://github.com/DevExpress-Examples/how-to-provide-images-for-legend-items-e2123)
+- [Chart for WinForms - Draw a Custom Legend Marker for a Series Point](https://github.com/DevExpress-Examples/winforms-chart-draw-a-custom-legend-marker-for-a-series-point)
