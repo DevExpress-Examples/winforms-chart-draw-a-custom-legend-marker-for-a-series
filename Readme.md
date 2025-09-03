@@ -12,7 +12,7 @@ This example demonstrates how to use the [CustomDrawSeries](https://docs.devexpr
 ![Chart](./image/Chart.png)
 
 Assign a custom legend marker to the [LegendMarkerImage](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraCharts.CustomDrawSeriesEventArgsBase.LegendMarkerImage) property. Set the [DisposeLegendMarkerImage](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraCharts.CustomDrawSeriesEventArgsBase.DisposeLegendMarkerImage) property to `true` to avoid memory leaks. To customize options used to draw the series, cast [e.SeriesDrawOptions](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraCharts.CustomDrawSeriesEventArgsBase.SeriesDrawOptions) to the
-[DrawOptions](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraCharts.DrawOptions?v=22.2) class descendant that stores draw options of the required series view type.
+[DrawOptions](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraCharts.DrawOptions) class descendant that stores draw options of the required series view type.
 
 ## Files to Review
 
@@ -36,3 +36,4 @@ Assign a custom legend marker to the [LegendMarkerImage](https://docs.devexpress
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
