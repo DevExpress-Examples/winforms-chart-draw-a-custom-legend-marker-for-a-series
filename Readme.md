@@ -30,7 +30,7 @@ Assign a custom legend marker to the [LegendMarkerImage](https://docs.devexpress
 - [Chart for WinForms - How to Add Images for Legend Items](https://github.com/DevExpress-Examples/how-to-provide-images-for-legend-items-e2123)
 - [Chart for WinForms - Draw a Custom Legend Marker for a Series Point](https://github.com/DevExpress-Examples/winforms-chart-draw-a-custom-legend-marker-for-a-series-point)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-chart-draw-a-custom-legend-marker-for-a-series&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-chart-draw-a-custom-legend-marker-for-a-series&~~~was_helpful=no)
 
